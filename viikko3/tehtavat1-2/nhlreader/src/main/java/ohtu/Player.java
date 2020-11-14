@@ -54,6 +54,10 @@ public class Player {
     public void setGoals(int goals) {
         this.goals = goals;
     }
+    
+    public int getGoalsAndAssists() {
+        return goals+assists;
+    }
 
     public int getPenalties() {
         return penalties;
@@ -89,5 +93,11 @@ public class Player {
                 + team + " "
                 + games;
     }
-      
+/*
+    @Override
+    public int compareTo(Player p) {
+        return this.getGames() - p.getGoals();
+    }
+*/     
+    
 }
