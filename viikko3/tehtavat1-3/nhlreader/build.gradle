@@ -1,14 +1,15 @@
 plugins {
     id 'java'
     id 'application'
+    id "com.github.johnrengelman.shadow" version "6.1.0"
 }
 
-//mainClassName = 'ohtu.Main'
+mainClassName = 'ohtu.Main'
 /* joudumme tässä tehtävässä käyttämään vanhaa tapaa mainClassin määrittelyyn sillä 
-tehtävässä käytettävä shadowJar-plugin ei osaa uudempaa syntaksia*/
+tehtävässä käytettävä shadowJar-plugin ei osaa uudempaa syntaksia
 application {
     mainClass = 'ohtu.Main'
-}
+}*/
 
 jar {
     manifest {
