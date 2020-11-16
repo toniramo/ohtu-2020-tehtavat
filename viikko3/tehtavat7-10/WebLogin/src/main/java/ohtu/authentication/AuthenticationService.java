@@ -1,0 +1,76 @@
+package ohtu.authentication;
+
+import ohtu.data_access.UserDao;
+import ohtu.domain.User;
+import ohtu.util.CreationStatus;
+
+public class AuthenticationService {
+
+    private UserDao userDao;
+
+    public AuthenticationService(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
+    public boolean logIn(String username, String password) {
+        for (User user : userDao.listAll()) {
+            if (user.getUsername().equals(username)
+                    && user.getPassword().equals(password)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public CreationStatus createUser(String username, String password, String passwordConfirmation) {
+        CreationStatus status = new CreationStatus();
+        
+        if (userDao.findByName(username) != null) {
+            status.addError("username is already taken");
+        }
+
+        if (username.length()<3 ) {
+            status.addError("username should have at least 3 characters");
+        }
+        
+        for (int i = 0; i < username.length(); i++) {
+            Character c = username.charAt(i);
+            if (c < 97 || c > 122) {
+               status.addError("username should only contain characters a-z");
+            }
+        }
+        
+        if (password.length() < 8) {
+            status.addError("password should have at least 8 characters");
+        }
+        
+        boolean containsNonAlphabeticCharacter = false;
+        boolean containsAlphabeticCharacter = false;
+        
+        for (int i = 0; i < password.length(); i++) {
+            Character c = password.charAt(i);
+            
+            if((c >= 65 && c<= 90) || (c >= 97 && c <= 122)) {
+                containsAlphabeticCharacter = true;
+            } else {
+                containsNonAlphabeticCharacter = true;
+            }
+        }
+        
+        if (!(containsNonAlphabeticCharacter && containsAlphabeticCharacter)) {
+            status.addError("password should contain both letters (a-z or A-Z) and non-letter characters");
+        }
+        
+        if (!password.equals(passwordConfirmation)) {
+            status.addError("password and password confirmation do not match");
+        }
+
+        if (status.isOk()) {
+            userDao.add(new User(username, password));
+        }
+        
+        return status;
+    }
+
+}
