@@ -54,6 +54,11 @@ public class Stepdefs {
         assertTrue(driver.getPageSource().contains(pageContent));
     }
     
+    @When("nonexisting username {string} and password {string} are given")
+    public void nonexistingUsernameAndPasswordAreGiven(String username, String password) {
+        logInWith(username, password);
+    }
+    
     @After
     public void tearDown(){
         driver.quit();
