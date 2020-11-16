@@ -1,0 +1,44 @@
+//Formatting used to draw diagrams in https://yuml.me/diagram/scruffy/class/draw
+
+//Brief:
+// ----
+[App]*-1[IO]
+[App]*-1[AuthenticationService]
+[<<interface>>;UserDao]^-.-[InMemoryUserDao]
+
+[InMemoryUserDao]*-*[User]
+
+[<<interface>>;IO]^-.-[ConsoleIo]
+[<<interface>>;IO]^-.-[StubIO]
+
+[AuthenticationService]*-1[UserDao]
+
+
+// Detailed:
+// ----
+[InMemoryUserDao|- List\<User\> users|+ listAll():List\<User\>; + findByName(String):User;+add(User);+setUsers(List\<User\>);+getUsers():List\<User\>]
+
+[<<interface>>;UserDao||+listAll():List\<User\>;+findByName(String):User;+add(User)]
+
+[User|-String username;-String password|+getPassword():String;+getUserName():String]
+
+[AuthenticationService|-UserDao userDao|+logIn(String,String):boolean;+createUser(String,String):boolean;-invalid(String,String):boolean]
+
+[<<interface>>;IO||+print(String);+readInt(String):int;+readLine(String):String]
+
+[ConsoleIo|-Scanner scanner|+print(String);+readInt(String):int;+readLine(String):String]
+
+[StubIO|-List\<String\> lines;-int i;-ArrayList\<String\> prints|+print(String);+readInt(String):int;+readLine(String):String;+getPrints():ArrayList\<String\>]
+
+[App|-Io io;-AuthenticationService auth|+ask():String［ ］  ;+run();+main(String［ ］)]
+
+[App]*-1[IO]
+[App]*-1[AuthenticationService]
+[<<interface>>;UserDao]^-.-[InMemoryUserDao]
+
+[InMemoryUserDao]*-*[User]
+
+[<<interface>>;IO]^-.-[ConsoleIo]
+[<<interface>>;IO]^-.-[StubIO]
+
+[AuthenticationService]*-1[UserDao]
