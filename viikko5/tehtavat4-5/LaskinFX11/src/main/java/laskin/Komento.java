@@ -19,6 +19,7 @@ public abstract class Komento {
     Button nollaa;
     Button undo;
     Sovelluslogiikka sovellus;
+    int syote;
 
     public Komento(TextField tuloskentta, TextField syotekentta, Button nollaa, Button undo, Sovelluslogiikka sovellus) {
         this.tuloskentta = tuloskentta;
@@ -32,24 +33,31 @@ public abstract class Komento {
 
     public abstract void peru();
 
-    protected int haeSyote() {
-        try {
-            return Integer.parseInt(syotekentta.getText());
-        } catch (NumberFormatException e) {
-            return 0;
-        }
+    protected void haeUusiSyote() throws NumberFormatException {
+        syote = Integer.parseInt(syotekentta.getText());
     }
 
     protected void paivitaTulos() {
-        int tulos = sovellus.tulos();
-        tuloskentta.setText(String.valueOf(tulos));
+        tuloskentta.setText(String.valueOf(sovellus.tulos()));
+    }
+
+    protected void nollaaSyotekentta() {
         syotekentta.setText("");
-        
-        if (tulos == 0) {
-            nollaa.disableProperty().set(true);
-        } else {
+    }
+
+    protected void enabloiNollaaJosTulosEiNolla() {
+        if (sovellus.tulos() != 0) {
             nollaa.disableProperty().set(false);
+        } else {
+            nollaa.disableProperty().set(true);
         }
+    }
+
+    protected void disabloiUndo() {
         undo.disableProperty().set(true);
+    }
+
+    protected void enabloiUndo() {
+        undo.disableProperty().set(false);
     }
 }

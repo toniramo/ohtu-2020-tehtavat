@@ -20,12 +20,24 @@ public class Plus extends Komento {
 
     @Override
     public void suorita() {
-        sovellus.plus(haeSyote());
-        paivitaTulos();
+        try {
+            haeUusiSyote();
+            sovellus.plus(syote);
+            paivitaTulos();
+            enabloiNollaaJosTulosEiNolla();
+            enabloiUndo();
+        } catch (NumberFormatException e) {
+        }
+        nollaaSyotekentta();
     }
 
     @Override
     public void peru() {
+        sovellus.miinus(syote);
+        paivitaTulos();
+        nollaaSyotekentta();
+        syote = 0;
+        disabloiUndo();
+        enabloiNollaaJosTulosEiNolla();
     }
-
 }
