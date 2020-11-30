@@ -12,3 +12,7 @@
 - Viikko4:
   - Kaikki palautukset [viikko4](https://github.com/toniramo/ohtu-2020-tehtavat/tree/main/viikko4)-hakemiston alla.
   -  Tehtäväkohtaisten palautusten yksityiskohdat nähtävissä viikko4-hakemiston [commit-historiasta](https://github.com/toniramo/ohtu-2020-tehtavat/commits/main/viikko4).
+- Viikko5:
+  - Tehtävät 1-5 [viikko5](https://github.com/toniramo/ohtu-2020-tehtavat/tree/main/viikko5)-hakemistossa
+  - Tehtävä 6: [retro.md](https://github.com/toniramo/ohtu-2020-tehtavat/blob/main/retro.md)
+  - [commit-historia](https://github.com/toniramo/ohtu-2020-tehtavat/commits/main/viikko5)
