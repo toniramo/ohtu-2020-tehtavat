@@ -16,3 +16,5 @@
   - Tehtävät 1-5 [viikko5](https://github.com/toniramo/ohtu-2020-tehtavat/tree/main/viikko5)-hakemistossa
   - Tehtävä 6: [retro.md](https://github.com/toniramo/ohtu-2020-tehtavat/blob/main/retro.md)
   - [commit-historia](https://github.com/toniramo/ohtu-2020-tehtavat/commits/main/viikko5)
+- Viikko6:
+  - Tehtävä 6: [pull.md](https://github.com/toniramo/ohtu-2020-tehtavat/blob/main/pull.md)
