@@ -17,4 +17,6 @@
   - Tehtävä 6: [retro.md](https://github.com/toniramo/ohtu-2020-tehtavat/blob/main/retro.md)
   - [commit-historia](https://github.com/toniramo/ohtu-2020-tehtavat/commits/main/viikko5)
 - Viikko6:
+  - Tehtävät 2-5: [viikko6/tehtavat2-5](https://github.com/toniramo/ohtu-2020-tehtavat/tree/main/viikko6/tehtavat2-5/QueryLanguage)
   - Tehtävä 6: [pull.md](https://github.com/toniramo/ohtu-2020-tehtavat/blob/main/pull.md)
+  - [commit-historia](https://github.com/toniramo/ohtu-2020-tehtavat/commits/main/viikko6)
