@@ -4,11 +4,16 @@ import java.util.Scanner;
 
 public class Paaohjelma {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    //private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
-        while (true) {
+        Scanner scanner = new Scanner(System.in);
+        IO io = new KonsoliIO(scanner);
+        KiviSaksetPaperi.aloitaPeli(io);
+
+
+        /*while (true) {
             System.out.println("\nValitse pelataanko"
                     + "\n (a) ihmistä vastaan "
                     + "\n (b) tekoälyä vastaan"
@@ -30,9 +35,9 @@ public class Paaohjelma {
                 pahaYksinpeli.pelaa();
             } else {
                 break;
-            }
+            }*/
 
-        }
+        
 
     }
 }

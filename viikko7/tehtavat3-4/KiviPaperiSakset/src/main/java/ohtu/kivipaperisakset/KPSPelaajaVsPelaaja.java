@@ -1,10 +1,17 @@
 package ohtu.kivipaperisakset;
 
-import java.util.Scanner;
+public class KPSPelaajaVsPelaaja extends KiviSaksetPaperi {
 
-public class KPSPelaajaVsPelaaja {
+    public KPSPelaajaVsPelaaja(IO io) {
+        super(io);
+    }
 
-    private static final Scanner scanner = new Scanner(System.in);
+    @Override
+    protected String toisenSiirto() {
+        return io.keraaTekstisyote("Toisen pelaajan siirto: ");
+    }
+
+    /*private static final Scanner scanner = new Scanner(System.in);
 
     public void pelaa() {
         Tuomari tuomari = new Tuomari();
@@ -33,5 +40,5 @@ public class KPSPelaajaVsPelaaja {
 
     private static boolean onkoOkSiirto(String siirto) {
         return "k".equals(siirto) || "p".equals(siirto) || "s".equals(siirto);
-    }
+    }*/
 }

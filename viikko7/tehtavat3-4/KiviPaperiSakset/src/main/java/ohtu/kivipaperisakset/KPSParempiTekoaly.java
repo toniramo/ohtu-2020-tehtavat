@@ -1,15 +1,32 @@
 package ohtu.kivipaperisakset;
 
-import java.util.Scanner;
-
-import java.util.Scanner;
-
 // Kivi-Paperi-Sakset, jossa voidaan valita pelataanko vastustajaa
 // vastaan vai ei
-public class KPSParempiTekoaly {
+public class KPSParempiTekoaly extends KiviSaksetPaperi {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private TekoalyParannettu tekoaly;
 
+    public KPSParempiTekoaly (IO io) {
+        this(io, 20);
+
+    }
+
+    public KPSParempiTekoaly (IO io, int tekoalynMuistinKoko) {
+        super(io);
+        tekoaly = new TekoalyParannettu(tekoalynMuistinKoko);
+    }
+
+    @Override
+    protected String toisenSiirto() {
+        String tekoalynSiirto = tekoaly.annaSiirto();
+        io.tulosta("Tietokone valitsi: " + tekoalynSiirto);
+        tekoaly.asetaSiirto(ekanViimeisinSiirto);
+        return tekoalynSiirto;
+    }
+
+    //private static final Scanner scanner = new Scanner(System.in);
+
+    /*
     public void pelaa() {
         Tuomari tuomari = new Tuomari();
         TekoalyParannettu tekoaly = new TekoalyParannettu(20);
@@ -40,9 +57,10 @@ public class KPSParempiTekoaly {
         System.out.println();
         System.out.println("Kiitos!");
         System.out.println(tuomari);
-    }
+    }*/
 
+    /*
     private static boolean onkoOkSiirto(String siirto) {
         return "k".equals(siirto) || "p".equals(siirto) || "s".equals(siirto);
-    }
+    }*/
 }

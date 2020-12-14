@@ -1,10 +1,24 @@
 package ohtu.kivipaperisakset;
 
-import java.util.Scanner;
+public class KPSTekoaly extends KiviSaksetPaperi {
 
-public class KPSTekoaly {
+    Tekoaly tekoaly;
 
-    private static final Scanner scanner = new Scanner(System.in);
+    public KPSTekoaly(IO io) {
+        super(io);
+        tekoaly = new Tekoaly();
+    }
+
+    @Override
+    protected String toisenSiirto() {
+        String tekoalynSiirto = tekoaly.annaSiirto();
+        io.tulosta("Tietokone valitsi: " + tekoalynSiirto);
+        return tekoalynSiirto;
+    }
+
+
+
+    /*private static final Scanner scanner = new Scanner(System.in);
 
     public void pelaa() {
         Tuomari tuomari = new Tuomari();
@@ -39,5 +53,5 @@ public class KPSTekoaly {
 
     private static boolean onkoOkSiirto(String siirto) {
         return "k".equals(siirto) || "p".equals(siirto) || "s".equals(siirto);
-    }
+    }*/
 }
